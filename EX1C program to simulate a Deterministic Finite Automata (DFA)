@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int n,i,j,posi=0,next=0,t[100][100],v;
+    char str[100];
+     printf("Enter no.of nodes");
+     scanf("%d",&n);
+     printf("Enteer no.of variabels");
+     scanf("%d",&v);
+     printf("\nEnter a value first and then b value");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<v;j++)
+        {
+      printf("\nEnter the tabel value of %d state and %d variable",i,j);
+      scanf("%d",&t[i][j]);
+        }
+    }
+    printf("\nEnter the string you need to verify enter only a and b");
+    scanf("%s",str);
+    int l=strlen(str);
+   for(i=0;i<l;i++)
+   {
+    if(str[i]=='a')
+    {
+        next=t[posi][0];
+    }
+    else if(str[i]=='b')
+    {
+        next=t[posi][1];
+    }
+    else
+    {
+       printf("\nEnter ther correct input");
+    }
+    posi=next;
+   }
+   if(posi==n-1)
+   {
+    printf("The given string %s is accepted",str);
+   }
+   else
+   printf("The given string is not accepted");
+}
